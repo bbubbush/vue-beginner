@@ -1,10 +1,25 @@
 <template>
-  <div>ask</div>
+  <div>
+    <div v-for="(ask, index) in asks" v-bind:key= "index">{{ ask.title }}</div>
+  </div>
 </template>
 
 <script>
-export default {
+import { fetchAskList } from '../api/index.js';
 
+export default {
+  data() {
+    return {
+      asks: []
+    }
+  },
+  created() {
+    fetchAskList()
+      .then(res => this.asks = res.data)
+      .catch((err) => {
+        console.log(err)
+      })
+  }
 }
 </script>
 

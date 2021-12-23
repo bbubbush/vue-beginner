@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-for="(user, index) in users" v-bind:key= "index">{{ user.title }}</div>
+    <div v-for="(user, index) in users" :key= "index">{{ user.title }}</div>
   </div>
 </template>
 

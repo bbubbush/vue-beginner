@@ -5,21 +5,16 @@
 </template>
 
 <script>
-import { fetchAskList } from '../api/index.js';
+import { mapGetters } from 'vuex';
 
 export default {
-  data() {
-    return {
-      ask: []
-    }
+  computed: {
+    ...mapGetters({
+      ask: "fetchedAsk"
+    })
   },
   created() {
-    fetchAskList()
-      .then(res => this.ask = res.data)
-      .catch((err) => {
-        console.log(err)
-        
-      })
+    this.$store.dispatch('FETCH_ASK')
   }
 }
 </script>

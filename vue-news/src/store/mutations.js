@@ -9,4 +9,10 @@ export default {
     SET_ASK(state, ask) {
       state.ask = ask;
     },
+    SET_USER(state, userInfo) {
+      state.userInfo = userInfo;
+    },
+    SET_CONTENT(state, contentInfo) {
+      state.contentInfo = contentInfo;
+    },
   } 

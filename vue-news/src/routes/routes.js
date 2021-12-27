@@ -25,7 +25,11 @@ export default [
         component: ItemView,
     },
     {
-        path: '/user',
+        path: '/user/:userId',
         component: UserView,
+    },
+    {
+        path: '/item/:contentId',
+        component: ItemView,
     },
 ]

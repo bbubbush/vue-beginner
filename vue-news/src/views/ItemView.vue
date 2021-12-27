@@ -1,12 +1,24 @@
 <template>
   <div>
-    <p>title :: {{ content.title }}</p>
-    <p>content :: {{ content.content }}</p>
-    <ul>
-      <li v-for="(comment, index) in content.comments" :key="index">
-        <p v-html="comment.content"></p>
-      </li>
-    </ul>
+    <section>
+      <!-- 질문 상세 정보 -->
+      <div class="user-container">
+        <div>
+          <i class="fas fa-user"></i>
+        </div>
+        <div class="user-description">
+          <router-link :to="`/user/${content.user}`">{{ content.user }}</router-link>
+          <div class="time">
+            {{ content.time_ago }}
+          </div>
+        </div>
+      </div>
+      <h2>{{ content.title }}</h2>
+    </section>
+    <section>
+      <!-- 질문 댓글 -->
+      <div v-html="content.content"></div>
+    </section>
   </div>
 </template>
 
@@ -26,6 +38,20 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+.user-container {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+}
+.fa-user {
+  font-size: 2.5rem;
+}
+.user-description {
+  padding-left: 8px;
+}
+.time {
+  font-size: 0.7rem;
+}
 
 </style>

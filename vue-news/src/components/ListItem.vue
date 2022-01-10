@@ -9,7 +9,14 @@
         <!-- 기타 정보 영역 -->
         <div>
           <p class="news-title">
-            <a :href="item.url">{{ item.title }}</a>
+            <template v-if="item.domain">
+              <a :href="item.url">{{ item.title }}</a>
+            </template>
+            <template v-else>
+              <router-link :to="`/item/${item.id}`">
+                {{ item.title }}
+              </router-link>
+            </template>
           </p>
           <small class="link-text">
             {{ item.time_ago }} by <router-link :to="`/user/${ item.user }`" class="link-text">{{ item.user }}</router-link>

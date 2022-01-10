@@ -10,14 +10,17 @@ export default [
     },
     {
         path: '/news',
+        name: `news`,
         component: NewsView,
     },
     {
         path: '/jobs',
+        name: `jobs`,
         component: JobsView,
     },
     {
         path: '/ask',
+        name: `ask`,
         component: AskView,
     },
     {
